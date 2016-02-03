@@ -96,6 +96,9 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.universal7420
+
+PRODUCT_PACKAGES += \
     Snap
 
 # Filesystem management tools

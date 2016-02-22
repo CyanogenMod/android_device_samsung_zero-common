@@ -55,18 +55,33 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
 
-# Graphics
-USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+# Exynos display
+BOARD_USES_VIRTUAL_DISPLAY := true
+
+# FIMG2D
+BOARD_USES_SKIA_FIMGAPI := true
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Graphics
+USE_OPENGL_RENDERER := true
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+
+# (G)SCALER
+BOARD_USES_SCALER := true
+BOARD_USES_DT := true
+
+# HWCServices
+BOARD_USES_HWC_SERVICES := true
+
+# HDMI
+BOARD_HDMI_INCAPABLE := true
+BOARD_USES_GSC_VIDEO := true
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_sec
 TARGET_UNIFIED_DEVICE := true
-
-#TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
@@ -85,6 +100,12 @@ TARGET_PROVIDES_LIBLIGHT := true
 # NFC
 BOARD_NFC_HAL_SUFFIX := universal7420
 
+# Samsung LSI OpenMAX
+COMMON_GLOBAL_CFLAGS += -DUSE_NATIVE_SEC_NV12TILED
+
+# OpenMAX video
+BOARD_USE_DMA_BUF := true
+BOARD_USE_METADATABUFFERTYPE := true
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true

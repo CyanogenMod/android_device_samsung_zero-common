@@ -138,9 +138,6 @@ BOARD_HAS_DOWNLOAD_MODE := true
 BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
 BOARD_OVERRIDE_RS_CPU_VARIANT_64 := cortex-a57
 
-# Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
-
 # Twrp
 ifneq ($(strip $(wildcard $(TOP)/bootable/recovery/variables.h)),)
 -include device/samsung/zero-common/twrp.mk

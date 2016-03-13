@@ -48,6 +48,4 @@ int ril_set_two_mic_control(struct ril_handle *ril,
                             enum __TwoMicSolDevice device,
                             enum __TwoMicSolReport report);
 
-void ril_register_set_wb_amr_callback(void *function, void *data);
-
 #endif

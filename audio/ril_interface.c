@@ -28,33 +28,6 @@
 #define VOLUME_STEPS_DEFAULT  "5"
 #define VOLUME_STEPS_PROPERTY "ro.config.vc_call_vol_steps"
 
-/* Audio WB AMR callback */
-void (*_audio_set_wb_amr_callback)(void *, int);
-void *callback_data = NULL;
-
-void ril_register_set_wb_amr_callback(void *function, void *data)
-{
-    _audio_set_wb_amr_callback = function;
-    callback_data = data;
-}
-
-/* This is the callback function that the RIL uses to
-set the wideband AMR state */
-static int ril_set_wb_amr_callback(void *ril_client __unused,
-                                   const void *data,
-                                   size_t datalen)
-{
-    int enable = ((int *)data)[0];
-
-    if (callback_data == NULL || _audio_set_wb_amr_callback == NULL) {
-        return -1;
-    }
-
-    _audio_set_wb_amr_callback(callback_data, enable);
-
-    return 0;
-}
-
 static int ril_connect_if_required(struct ril_handle *ril)
 {
     int ok;
@@ -87,11 +60,6 @@ int ril_open(struct ril_handle *ril)
         ALOGE("OpenClient_RILD() failed");
         return -1;
     }
-
-    /* register the wideband AMR callback */
-    RegisterUnsolicitedHandler(ril->client,
-                               RIL_UNSOL_SNDMGR_WB_AMR_REPORT,
-                               (RilOnUnsolicited)ril_set_wb_amr_callback);
 
     property_get(VOLUME_STEPS_PROPERTY, property, VOLUME_STEPS_DEFAULT);
     ril->volume_steps_max = atoi(property);

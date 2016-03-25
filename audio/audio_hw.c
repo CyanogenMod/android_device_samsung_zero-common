@@ -22,6 +22,7 @@
 #define LOG_NDEBUG 0
 
 #include <errno.h>
+#include <fcntl.h>
 #include <pthread.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -50,10 +51,10 @@
 #define PCM_CARD_SPDIF 1
 #define PCM_TOTAL 2
 
-#define PCM_DEVICE 0
-#define PCM_DEVICE_VOICE 1
-#define PCM_DEVICE_SCO 2
-#define PCM_DEVICE_DEEP 3
+#define PCM_DEVICE 0       /* Playback link */
+#define PCM_DEVICE_VOICE 1 /* Baseband link */
+#define PCM_DEVICE_SCO 2   /* Bluetooth link */
+#define PCM_DEVICE_DEEP 8  /* Deep buffer */
 #define PCM_DEVICE_PLAYBACK 6
 
 #define MIXER_CARD 0
@@ -147,6 +148,8 @@ struct audio_device {
     bool bluetooth_nrec;
     bool wb_amr;
     bool two_mic_control;
+
+    int hdmi_drv_fd;
 
     /* RIL */
     struct ril_handle ril;

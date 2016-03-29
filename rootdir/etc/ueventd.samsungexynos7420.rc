@@ -45,6 +45,9 @@
 /dev/video13              0660   media      media
 /dev/video14              0660   media      media
 
+# hdmi
+/dev/graphics/fb1         0660   media      graphics
+
 # mfc
 /dev/video6               0660   media      media
 /dev/video7               0660   media      media

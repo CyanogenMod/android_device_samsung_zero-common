@@ -123,7 +123,12 @@ enum {
     /* buffer will be used by the HW IPs when sysmmu is off */
     GRALLOC_USAGE_PHYSICALLY_LINEAR     = 0x01000000,
     /* mask for the software usage bit-mask */
+#if 0
     GRALLOC_USAGE_HW_MASK               = 0x00079F00,
+#else
+    /* Samsung uses a different value for this mask */
+    GRALLOC_USAGE_HW_MASK               = 0x00071F00,
+#endif
 
     /* buffer will be used as a RenderScript Allocation */
     GRALLOC_USAGE_RENDERSCRIPT          = 0x00100000,

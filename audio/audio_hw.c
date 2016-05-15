@@ -1647,10 +1647,14 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
 
     *stream_in = NULL;
 
-    /* Respond with a request for stereo if a different format is given. */
-    if (config->channel_mask != AUDIO_CHANNEL_IN_STEREO) {
-        config->channel_mask = AUDIO_CHANNEL_IN_STEREO;
-        return -EINVAL;
+    /* Respond with a request for mono if a different format is given. */
+    if (config->channel_mask != AUDIO_CHANNEL_IN_MONO &&
+            config->channel_mask != AUDIO_CHANNEL_IN_FRONT_BACK) {
+        if (!(adev->in_call && adev->two_mic_control)) {
+            // Not in a call and no explicit FRONT_BACK input requested
+            config->channel_mask = AUDIO_CHANNEL_IN_MONO;
+            return -EINVAL;
+        }
     }
 
     in = (struct stream_in *)calloc(1, sizeof(struct stream_in));

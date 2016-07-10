@@ -1,3 +1,5 @@
+# Exynos7420 needs to be uploaded on Cyanogenmod github
+
 [
     {
         "repository": "android_external_stlport",
@@ -27,7 +29,6 @@
         "repository": "android_hardware_samsung_slsi-cm_openmax",
         "target_path": "hardware/samsung_slsi-cm/openmax"
     },
-# Exynos7420 needs to be uploaded on Cyanogenmod github
     {
         "repository": "android_kernel_samsung_exynos7420",
         "target_path": "kernel/samsung/exynos7420"

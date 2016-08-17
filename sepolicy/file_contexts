@@ -10,9 +10,12 @@
 
 /dev/ttySAC3                 u:object_r:bluetooth_device:s0
 
+/dev/batch_io                u:object_r:batch_io_device:s0
+
 /dev/s5p-smem                u:object_r:secmem_device:s0
 /dev/mobicore                u:object_r:tee_device:s0
 /dev/mobicore-user           u:object_r:tee_device:s0
+/dev/vfsspi                  u:object_r:vfs_device:s0
 
 /dev/v4l-subdev[0-9]*        u:object_r:video_device:s0
 /dev/media[0-3]*             u:object_r:camera_device:s0
@@ -28,6 +31,10 @@
 /dev/ttySAC[0-9]*            u:object_r:gps_device:s0
 
 /dev/block/mmcblk0p[0-9]*    u:object_r:emmcblk_device:s0
+
+/dev/block/platform/15570000.ufs/by-name/EFS  u:object_r:efs_block_device:s0
+/dev/block/platform/15570000.ufs/by-name/CACHE    u:object_r:cache_block_device:s0
+/dev/block/platform/15570000.ufs/by-name/USERDATA    u:object_r:userdata_block_device:s0
 
 /dev/rfkill                  u:object_r:rfkill_device:s0
 
@@ -58,6 +65,9 @@
 /data/.wifiver.info          u:object_r:wifi_data_file:s0
 
 /data/misc/radio(/.*)?       u:object_r:radio_data_file:s0
+
+# fingerprint
+/data/biometrics(/.*)?       u:object_r:fingerprint_data_file:s0
 
 # gps
 /data/system/gps/\.flp\.interface\.pipe\.to_gpsd     u:object_r:gps_data_file:s0

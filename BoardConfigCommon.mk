@@ -51,6 +51,7 @@ TARGET_BOOTLOADER_BOARD_NAME := universal7420
 TARGET_NO_BOOTLOADER := true
 
 # Charger
+BACKLIGHT_PATH := /sys/devices/13900000.dsim/backlight/panel/brightness
 BOARD_BATTERY_DEVICE_NAME := battery
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
@@ -75,7 +76,7 @@ BOARD_USES_DT := true
 BOARD_HARDWARE_CLASS += device/samsung/zero-common/cmhw
 
 # HWCServices
-# BOARD_USES_HWC_SERVICES := true
+BOARD_USES_HWC_SERVICES := true
 
 # HDMI
 BOARD_HDMI_INCAPABLE := true

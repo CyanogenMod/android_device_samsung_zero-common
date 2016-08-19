@@ -124,6 +124,9 @@ TARGET_SLSI_VARIANT := cm
 # PowerHAL
 TARGET_POWERHAL_VARIANT := samsung
 
+# Properties
+TARGET_SYSTEM_PROP += $(LOCAL_PATH)/system.prop
+
 # Radio
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 

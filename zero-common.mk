@@ -157,17 +157,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.universal7420
 
-# common build properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=640 \
-    ro.opengles.version=196609 \
-    ro.chipname=exynos7420 \
-    af.fast_track_multiplier=1 \
-    audio_hal.force_voice_config=wide \
-    ro.nfc.sec_hal=true \
-    wifi.interface=wlan0 \
-    debug.hwc.force_gpu=1
-
 # Radio
 PRODUCT_PACKAGES += \
     libxml2 \

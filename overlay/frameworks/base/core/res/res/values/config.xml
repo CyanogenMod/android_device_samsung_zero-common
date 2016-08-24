@@ -135,6 +135,7 @@
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
 
+<!--
     <!-- Does the notification LED support multiple colors?
          Used to decide if the user can change the colors -->
     <bool name="config_multiColorNotificationLed">true</bool>
@@ -172,7 +173,7 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
-
+-->
     <!-- Minimum allowable screen brightness to use in a very dark room.
          This value sets the floor for the darkest possible auto-brightness
          adjustment.  It is expected to be somewhat less than the first entry in
@@ -305,9 +306,10 @@
     <!-- Our gralloc has support for protected buffers -->
     <bool name="config_wifiDisplaySupportsProtectedBuffers">true</bool>
 
+<!--
     <!-- Boolean to enable STK functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
-
+-->
     <!-- Doze (Ambient display) -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 

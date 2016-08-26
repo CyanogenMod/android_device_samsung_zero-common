@@ -28,9 +28,9 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/zero-common/overlay-gsm
 endif
 
 # This device is 640dpi.  However the platform doesn't
-# currently contain all of the bitmaps at 560dpi density so
+# currently contain all of the bitmaps at 640dpi density so
 # we do this little trick to fall back to the xxhdpi version
-# if the 560dpi doesn't exist.
+# if the 640dpi doesn't exist.
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 640dpi
 # A list of dpis to select prebuilt apk, in precedence order.
@@ -97,10 +97,6 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     Snap
-
-# Charger
-PRODUCT_PACKAGES += \
-    charger_res_images
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
@@ -170,7 +166,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.force_voice_config=wide \
     ro.nfc.sec_hal=true \
     wifi.interface=wlan0 \
-    debug.hwc.force_gpu=1
+    debug.hwc.force_gpu=1 \
+    ro.bq.gpu_to_cpu_unsupported=1
 
 # Radio
 PRODUCT_PACKAGES += \

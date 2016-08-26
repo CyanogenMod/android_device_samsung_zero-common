@@ -470,27 +470,6 @@ typedef struct {
     GpsStatusValue status;
 } GpsStatus;
 
-/** Represents SV information. */
-typedef struct {
-    /** set to sizeof(GpsSvInfo) */
-    size_t          size;
-    /** Pseudo-random number for the SV. */
-
-    int     prn;
-
-    /** Signal to noise ratio. */
-    float   snr;
-
-    /** Elevation of SV in degrees. */
-    float   elevation;
-
-    /** Azimuth of SV in degrees. */
-    float   azimuth;
-
-    int used;
-
-} GpsSvInfo;
-
 /** Represents SV status. */
 typedef struct {
     /** set to sizeof(GpsSvStatus) */
@@ -697,26 +676,7 @@ typedef struct {
 // be using _v2 and _v3, so it's OK to pay the 'unaligned' penalty in 64-bit if an old
 // implementation is still in use.
 
-/** Represents the status of AGPS. */
-typedef struct {
-    /** set to sizeof(AGpsStatus_v1) */
-    size_t          size;
-
-    AGpsType        type;
-    AGpsStatusValue status;
-} AGpsStatus_v1;
-
 #pragma pack(pop)
-
-/** Represents the status of AGPS augmented with a IPv4 address field. */
-typedef struct {
-    /** set to sizeof(AGpsStatus_v2) */
-    size_t          size;
-
-    AGpsType        type;
-    AGpsStatusValue status;
-    uint32_t        ipaddr;
-} AGpsStatus_v2;
 
 /* Represents the status of AGPS augmented to support IPv4 and IPv6. */
 typedef struct {
@@ -752,35 +712,6 @@ typedef struct {
     gps_create_thread create_thread_cb;
 } AGpsCallbacks;
 
-
-/** Extended interface for AGPS support. */
-typedef struct {
-    /** set to sizeof(AGpsInterface_v1) */
-    size_t          size;
-
-    /**
-     * Opens the AGPS interface and provides the callback routines
-     * to the implementation of this interface.
-     */
-    void  (*init)( AGpsCallbacks* callbacks );
-    /**
-     * Notifies that a data connection is available and sets
-     * the name of the APN to be used for SUPL.
-     */
-    int  (*data_conn_open)( const char* apn );
-    /**
-     * Notifies that the AGPS data connection has been closed.
-     */
-    int  (*data_conn_closed)();
-    /**
-     * Notifies that a data connection is not available for AGPS.
-     */
-    int  (*data_conn_failed)();
-    /**
-     * Sets the hostname and port for the AGPS server.
-     */
-    int  (*set_server)( AGpsType type, const char* hostname, int port );
-} AGpsInterface_v1;
 
 /**
  * Extended interface for AGPS support, it is augmented to enable to pass

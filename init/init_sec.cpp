@@ -31,22 +31,23 @@
    Author : Sunghun Ra
  */
 
+#include <cutils/properties.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 #include "log.h"
 #include "util.h"
 
 void vendor_load_properties()
 {
-    char platform[PROP_VALUE_MAX];
-    char bootloader[PROP_VALUE_MAX];
-    char device[PROP_VALUE_MAX];
     char devicename[PROP_VALUE_MAX];
 
-    property_get("ro.bootloader", bootloader);
+    std::string platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)) {
+        return;
+    }
 
     if (strstr(bootloader, "G920S")) {
         /* zeroflteskt */
@@ -86,7 +87,11 @@ void vendor_load_properties()
         property_set("ro.product.device", "zerofltexx");
     }
 
-    property_get("ro.product.device", device);
+    std::string bootloader = property_get("ro.bootloader");
+    std::string device = property_get("ro.product.device");
+
     strlcpy(devicename, device, sizeof(devicename));
+
     ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
 }
+

@@ -5,30 +5,37 @@
     },
     {
         "repository": "android_packages_apps_SamsungServiceMode",
-        "target_path": "packages/apps/SamsungServiceMode"
+        "target_path": "packages/apps/SamsungServiceMode",
+        "revision": "cm-13.0"
     },
     {
         "repository": "android_hardware_samsung",
-        "target_path": "hardware/samsung"
+        "target_path": "hardware/samsung",
+        "revision": "cm-14.0"
     },
     {
         "repository": "android_hardware_samsung_slsi-cm_exynos",
-        "target_path": "hardware/samsung_slsi-cm/exynos"
+        "target_path": "hardware/samsung_slsi-cm/exynos",
+        "revision": "cm-14.0"
     },
     {
         "repository": "android_hardware_samsung_slsi-cm_exynos5",
-        "target_path": "hardware/samsung_slsi-cm/exynos5"
+        "target_path": "hardware/samsung_slsi-cm/exynos5",
+        "revision": "cm-14.0"
     },
     {
         "repository": "android_hardware_samsung_slsi-cm_exynos7420",
-        "target_path": "hardware/samsung_slsi-cm/exynos7420"
+        "target_path": "hardware/samsung_slsi-cm/exynos7420",
+        "revision": "cm-14.0"
     },
     {
         "repository": "android_hardware_samsung_slsi-cm_openmax",
-        "target_path": "hardware/samsung_slsi-cm/openmax"
+        "target_path": "hardware/samsung_slsi-cm/openmax",
+        "revision": "cm-14.0"
     },
     {
         "repository" "android_kernel_samsung_exynos7420",
-        "target_path": "kernel/samsung/exynos7420"
+        "target_path": "kernel/samsung/exynos7420",
+        "revision": "cm-14.0"
     }
 ]

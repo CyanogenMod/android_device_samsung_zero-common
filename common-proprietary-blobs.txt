@@ -137,6 +137,8 @@ lib64/libsensorlistener.so
 lib/libuniplugin.so
 lib64/libuniplugin.so
 vendor/firmware/setfile_2p2.bin
+vendor/firmware/setfile_4e6.bin
+vendor/firmware/setfile_imx240.bin
 
 # Consumer IR
 lib/hw/consumerir.exynos5.so
@@ -166,10 +168,19 @@ lib/libwrappergps.so
 lib64/libwrappergps.so
 
 # Media
-vendor/firmware/fimc_is_fw2_imx240.bin
+# S5P Multi Format Codec
 vendor/firmware/mfc_fw.bin
-vendor/firmware/setfile_4e6.bin
-vendor/firmware/setfile_imx240.bin
+# Image subsystem
+vendor/firmware/fimc_is_fw2_2p2.bin
+vendor/firmware/fimc_is_fw2_imx240.bin
+vendor/firmware/ois_fw_dom.bin
+vendor/firmware/ois_fw_sec.bin
+vendor/firmware/companion_2p2_master_setfile.bin
+vendor/firmware/companion_2p2_mode_setfile.bin
+vendor/firmware/companion_fw_2p2_evt1.bin
+vendor/firmware/companion_fw_imx240_evt1.bin
+vendor/firmware/companion_imx240_master_setfile.bin
+vendor/firmware/companion_imx240_mode_setfile.bin
 
 # Memory
 lib/libion.so

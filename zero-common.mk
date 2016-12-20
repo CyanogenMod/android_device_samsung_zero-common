@@ -185,10 +185,6 @@ PRODUCT_PACKAGES += \
     init.wifi.rc \
     ueventd.samsungexynos7420.rc
 
-# Samsung
-PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
 # Wifi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
